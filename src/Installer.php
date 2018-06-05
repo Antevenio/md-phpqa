@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPCodeChecker;
+namespace MDPHPQA;
 
 class Installer
 {
