@@ -28,13 +28,18 @@ done
 
 if [ "$FILES" != "" ]
 then
+    CONFIG_FILE="./phpcs.xml"
+    if [ ! -f "$CONFIG_FILE" ]
+    then
+        CONFIG_FILE="./vendor/md/md-phpqa/phpcs.xml"
+    fi
     echo "Running Code Sniffer. Code standard PSR2."
-    ./vendor/bin/phpcs --standard=PSR2 --colors --encoding=utf-8 -n -p $FILES
+    ./vendor/bin/phpcs --standard=$CONFIG_FILE --colors --encoding=utf-8 -n -p $FILES
     if [ $? != 0 ]
     then
         echo "Fix the error before commit!"
         echo "Run"
-        echo "  ./vendor/bin/phpcbf --standard=PSR2 $FILES"
+        echo "  ./vendor/bin/phpcbf --standard=$CONFIG_FILE $FILES"
         echo "for automatic fix or fix it manually."
         exit 1
     fi
