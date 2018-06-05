@@ -9,15 +9,15 @@ Inspired by [Enforce code standards with composer, git hooks, and phpcs](http://
 
 ## Installation
 
-Install `wickedreports/phpcs-pre-commit-hook` with composer require command:
+Install `md/md-phpqa` with composer require command:
 
-    composer require "wickedreports/phpcs-pre-commit-hook"
+    composer require "md/md-phpqa"
 
-Or alternatively, include a dependency for `wickedreports/phpcs-pre-commit-hook` in your composer.json file manually:
+Or alternatively, include a dependency for `md/md-phpqa` in your composer.json file manually:
 
     {
         "require-dev": {
-            "wickedreports/phpcs-pre-commit-hook": "*"
+            "md/md-phpqa": "*"
         }
     }
 
@@ -25,10 +25,10 @@ To enable code sniff, аdd to `post-install-cmd` and `post-update-cmd` in `compo
 
     "scripts": {
         "post-install-cmd": [
-            "PHPCodeChecker\\Installer::postInstall"
+            "MDPHPQA\\Installer::postInstall"
         ],
         "post-update-cmd": [
-            "PHPCodeChecker\\Installer::postInstall"
+            "MDPHPQA\\Installer::postInstall"
         ]
     }
 
