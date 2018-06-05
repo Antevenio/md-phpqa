@@ -14,11 +14,6 @@
             <property name="ignoreBlankLines" value="false"/>
         </properties>
     </rule>
-
-    <!-- Paths to check -->
-    <file>config</file>
-    <file>module</file>
-    <file>application</file>
-    <file>src</file>
-    <file>tests</file>
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>config/*</exclude-pattern>
 </ruleset>
