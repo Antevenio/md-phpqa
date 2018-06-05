@@ -1,24 +1,8 @@
 {
     "name": "md/md-phpqa",
     "description": "Pre-commit hooks and tools to ensure code quality and standards in the mdirector suite.",
-    "type": "scripts",
-    "license": "GPL-3.0",
-    "authors": [
-        {
-            "name": "MDirector Dev Team",
-            "email": "mdirector-dev@antevenio.com"
-        },
-        {
-            "name": "Stanislav Malkin",
-            "email": "stan@wickedreports.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "MD\\PHPQA\\": "src/"
-        }
-    },
+    "type": "library",
     "require": {
-        "squizlabs/php_codesniffer": "3.*"
+        "phpro/grumphp": "^0.14.1"
     }
 }
