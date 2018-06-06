@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "phpro/grumphp": "dev-master"
+        "phpro/grumphp": "0.14.1.1"
     },
     "require-dev": {
     },

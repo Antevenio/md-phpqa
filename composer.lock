@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7aa93f82555e629dc2a9bc98e549616",
+    "content-hash": "168cd7f9cf03b67f6aac5993c14c794b",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -534,7 +534,7 @@
         },
         {
             "name": "phpro/grumphp",
-            "version": "dev-master",
+            "version": "v0.14.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Antevenio/grumphp.git",
@@ -1583,9 +1583,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "phpro/grumphp": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
