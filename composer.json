@@ -9,9 +9,9 @@
         }
     ],
     "require": {
+        "phpro/grumphp": "dev-master"
     },
     "require-dev": {
-        "phpro/grumphp": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
