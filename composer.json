@@ -2,9 +2,23 @@
     "name": "md/md-phpqa",
     "description": "Pre-commit hooks and tools to ensure code quality and standards in the mdirector suite.",
     "type": "library",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis-git.antevenio.com/"
+        }
+    ],
     "require": {
     },
     "require-dev": {
-        "phpro/grumphp": "^0.14.1"
+        "phpro/grumphp": "dev-master"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "GrumPHP\\Composer\\DevelopmentIntegrator::integrate"
+        ],
+        "post-update-cmd": [
+            "GrumPHP\\Composer\\DevelopmentIntegrator::integrate"
+        ]
     }
 }
