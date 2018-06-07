@@ -13,11 +13,18 @@
     },
     "require-dev": {
     },
+    "autoload": {
+        "psr-4": {
+            "MD\\PHPQA\\": "src/"
+        }
+    },
     "scripts": {
         "post-install-cmd": [
+            "MD\\PHPQA\\Composer\\DevelopmentIntegrator::integrate",
             "GrumPHP\\Composer\\DevelopmentIntegrator::integrate"
         ],
         "post-update-cmd": [
+            "MD\\PHPQA\\Composer\\DevelopmentIntegrator::integrate",
             "GrumPHP\\Composer\\DevelopmentIntegrator::integrate"
         ]
     }
