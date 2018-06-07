@@ -39,7 +39,6 @@ class MDQAPlugin implements PluginInterface, EventSubscriberInterface
 
     public function runTasks(Event $event)
     {
-        $this->io->writeError("Hola soy yo!");
-        $this->io->writeError(var_export($event));
+        $this->io->writeError("Evento recibido: " . $event->getName());
     }
 }
