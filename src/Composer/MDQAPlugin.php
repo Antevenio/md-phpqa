@@ -25,8 +25,6 @@ class MDQAPlugin implements PluginInterface, EventSubscriberInterface
     {
         $this->composer = $composer;
         $this->io = $io;
-
-        $this->io->writeError("Hola soy yo en activate!");
     }
 
     public static function getSubscribedEvents()
