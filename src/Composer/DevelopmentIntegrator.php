@@ -3,10 +3,21 @@
 namespace MD\PHPQA\Composer;
 
 use Composer\Script\Event;
+use GrumPHP\Locator\ConfigurationFile;
+use Symfony\Component\Yaml\Yaml;
 
 class DevelopmentIntegrator
 {
+
     const CONFIG_DIR = 'config';
+
+    const DEFAULT_YAML = [
+        'parameters' => [
+            'git_dir' => '.',
+            'bin_dir' => 'vendor/bin',
+            'tasks' => null
+        ]
+    ];
 
     protected static function getThisProjectRootDirectory()
     {
@@ -28,6 +39,11 @@ class DevelopmentIntegrator
         return static::getProjectRootDirectory() . DIRECTORY_SEPARATOR . $filename;
     }
 
+    protected static function isDefaultGrumPHPYamlFile($filename)
+    {
+        return Yaml::parseFile($filename) == static::DEFAULT_YAML;
+    }
+
     /**
      * @param Event $event
      */
@@ -39,17 +55,27 @@ class DevelopmentIntegrator
             '</fg=green>'
         );
         $directoryIterator = new \DirectoryIterator(static::getThisProjectConfigDirectory());
-        foreach ($directoryIterator as $file)
-        {
+        foreach ($directoryIterator as $file) {
             if ($file->isFile()) {
-                $inProjectPathname = static::getInProjectPathnameForFile($file->getFilename());
+                $filename = $file->getFilename();
+                $inProjectPathname = static::getInProjectPathnameForFile($filename);
                 if (!file_exists($inProjectPathname)) {
                     copy($file->getPathname(), $inProjectPathname);
                     $event->getIO()->write(
                         '<fg=green>' .
-                        '[PHPQA] Copied default configuration file: ' . $file->getFilename() .
+                        '[PHPQA] Copied default configuration file: ' . $filename .
                         '</fg=green>'
                     );
+                } else {
+                    if ($filename == ConfigurationFile::APP_CONFIG_FILE &&
+                        static::isDefaultGrumPHPYamlFile($inProjectPathname)) {
+                        $event->getIO()->write(
+                            '<fg=green>' .
+                            '[PHPQA] Overwrite default ' . $filename .
+                            '</fg=green>'
+                        );
+                        copy($file->getPathname(), $inProjectPathname);
+                    }
                 }
             }
         }
