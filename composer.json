@@ -1,7 +1,7 @@
 {
     "name": "md/md-phpqa",
     "description": "Pre-commit hooks and tools to ensure code quality and standards in the mdirector suite.",
-    "type": "library",
+    "type": "composer-plugin",
     "repositories": [
         {
             "type": "composer",
@@ -9,6 +9,8 @@
         }
     ],
     "require": {
+        "php": ">=5.6.0",
+        "composer-plugin-api": "~1.0",
         "phpro/grumphp": "0.14.1.1"
     },
     "require-dev": {
@@ -17,6 +19,9 @@
         "psr-4": {
             "MD\\PHPQA\\": "src/"
         }
+    },
+    "extra": {
+        "class": "GrumPHP\\Composer\\GrumPHPPlugin"
     },
     "scripts": {
         "post-install-cmd": [
