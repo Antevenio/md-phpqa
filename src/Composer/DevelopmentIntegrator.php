@@ -43,7 +43,8 @@ class DevelopmentIntegrator
                     $event->getIO()->write(
                         '<fg=green>' .
                         '[PHPQA] Copied default configuration file: '.$file->getFilename() .
-                        '</fg=green>');
+                        '</fg=green>'
+                    );
                 }
             }
         }
