@@ -41,7 +41,7 @@ class DevelopmentIntegrator
 
     protected static function isDefaultGrumPHPYamlFile($filename)
     {
-        return Yaml::parseFile($filename) == static::DEFAULT_YAML;
+        return Yaml::parse($filename) == static::DEFAULT_YAML;
     }
 
     /**
