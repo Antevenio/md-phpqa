@@ -32,13 +32,13 @@ class MDQAPlugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            ScriptEvents::POST_INSTALL_CMD => 'runTasks',
-            ScriptEvents::POST_UPDATE_CMD => 'runTasks'
+            ScriptEvents::POST_INSTALL_CMD => 'runIntegration',
+            ScriptEvents::POST_UPDATE_CMD => 'runIntegration'
         ];
     }
 
-    public function runTasks(Event $event)
+    public function runIntegration(Event $event)
     {
-        $this->io->writeError("Evento recibido: " . $event->getName());
+        DevelopmentIntegrator::integrate($event);
     }
 }
