@@ -21,7 +21,7 @@
         }
     },
     "extra": {
-        "class": "GrumPHP\\Composer\\GrumPHPPlugin"
+        "class": "MD\\PHPQA\\Composer\\MDQAPlugin"
     },
     "scripts": {
         "post-install-cmd": [
