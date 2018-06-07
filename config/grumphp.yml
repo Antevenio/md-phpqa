@@ -1,5 +1,8 @@
 parameters:
     git_dir: .
     bin_dir: vendor/bin
+    ascii:
+      failed: vendor/md/md-phpqa/resources/patan.txt
+      succeeded: vendor/md/md-phpqa/resources/odie.txt
     tasks:
         phpcs: null
