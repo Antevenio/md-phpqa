@@ -33,6 +33,11 @@ class DevelopmentIntegrator
      */
     public static function integrate(Event $event)
     {
+        $event->getIO()->write(
+            '<fg=green>' .
+            '[PHPQA] Integrating!' .
+            '</fg=green>'
+        );
         $directoryIterator = new \DirectoryIterator(static::getThisProjectConfigDirectory());
         foreach ($directoryIterator as $file)
         {
@@ -42,7 +47,7 @@ class DevelopmentIntegrator
                     copy($file->getPathname(), $inProjectPathname);
                     $event->getIO()->write(
                         '<fg=green>' .
-                        '[PHPQA] Copied default configuration file: '.$file->getFilename() .
+                        '[PHPQA] Copied default configuration file: ' . $file->getFilename() .
                         '</fg=green>'
                     );
                 }
