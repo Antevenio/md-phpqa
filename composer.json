@@ -10,6 +10,8 @@
         "symfony/yaml": "~2.7|~3.0|~4.0"
     },
     "require-dev": {
+        "sebastian/phpcpd": "^4.0",
+        "phpmd/phpmd": "^2.6"
     },
     "autoload": {
         "psr-4": {
@@ -22,7 +24,6 @@
     "scripts": {
         "post-install-cmd": [
             "MD\\PHPQA\\Composer\\DevelopmentIntegrator::integrate"
-
         ],
         "post-update-cmd": [
             "MD\\PHPQA\\Composer\\DevelopmentIntegrator::integrate"

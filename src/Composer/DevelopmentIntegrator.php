@@ -4,7 +4,7 @@ namespace MD\PHPQA\Composer;
 
 use Composer\Script\Event;
 use GrumPHP\Locator\ConfigurationFile;
-use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\Yaml\Parser;
 
 class DevelopmentIntegrator
 {
@@ -41,7 +41,8 @@ class DevelopmentIntegrator
 
     protected static function isDefaultGrumPHPYamlFile($filename)
     {
-        return Yaml::parse(file_get_contents($filename)) == static::DEFAULT_YAML;
+        $yaml = new Parser();
+        return $yaml->parse(file_get_contents($filename));
     }
 
     /**
@@ -66,16 +67,17 @@ class DevelopmentIntegrator
                         '[PHPQA] Copied default configuration file: ' . $filename .
                         '</fg=green>'
                     );
-                } else {
-                    if ($filename == ConfigurationFile::APP_CONFIG_FILE &&
-                        static::isDefaultGrumPHPYamlFile($inProjectPathname)) {
-                        $event->getIO()->write(
-                            '<fg=green>' .
-                            '[PHPQA] Overwrite default ' . $filename .
-                            '</fg=green>'
-                        );
-                        copy($file->getPathname(), $inProjectPathname);
-                    }
+                    continue;
+                }
+
+                if ($filename == ConfigurationFile::APP_CONFIG_FILE &&
+                    static::isDefaultGrumPHPYamlFile($inProjectPathname)) {
+                    $event->getIO()->write(
+                        '<fg=green>' .
+                        '[PHPQA] Overwrite default ' . $filename .
+                        '</fg=green>'
+                    );
+                    copy($file->getPathname(), $inProjectPathname);
                 }
             }
         }

@@ -6,3 +6,17 @@ parameters:
       succeeded: vendor/md/md-phpqa/resources/astroboy.txt
     tasks:
         phpcs: null
+#        phpcpd:
+#            directory: '.'
+#            exclude: ['vendor']
+#            names_exclude: []
+#            regexps_exclude: []
+#            fuzzy: false
+#            min_lines: 5
+#            min_tokens: 70
+#            triggered_by: ['php']
+#        phpmd:
+#            whitelist_patterns: []
+#            exclude: []
+#            ruleset: ['cleancode', 'codesize', 'naming']
+#            triggered_by: ['php']
