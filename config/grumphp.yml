@@ -3,7 +3,7 @@ parameters:
     bin_dir: vendor/bin
     ascii:
       failed: vendor/md/md-phpqa/resources/patan.txt
-      succeeded: vendor/md/md-phpqa/resources/astroboy.txt
+      succeeded: vendor/md/md-phpqa/resources/speedy.txt
     tasks:
         phpcs: null
 #        phpcpd:
