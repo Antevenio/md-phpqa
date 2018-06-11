@@ -37,6 +37,8 @@ class MDQAPlugin implements PluginInterface, EventSubscriberInterface
 
     public function runIntegration(Event $event)
     {
-        DevelopmentIntegrator::integrate($event);
+        if (class_exists(DevelopmentIntegrator::class)) {
+            DevelopmentIntegrator::integrate($event);
+        }
     }
 }
