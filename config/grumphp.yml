@@ -2,8 +2,8 @@ parameters:
     git_dir: .
     bin_dir: vendor/bin
     ascii:
-      failed: vendor/md/md-phpqa/resources/patan.txt
-      succeeded: vendor/md/md-phpqa/resources/speedy.txt
+      failed: vendor/antevenio/md-phpqa/resources/patan.txt
+      succeeded: vendor/antevenio/md-phpqa/resources/speedy.txt
     tasks:
         phpcs: null
 #        phpcpd:
